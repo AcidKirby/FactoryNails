@@ -15,9 +15,10 @@
   <link rel="alternate" href="https://example.com/fr/" hreflang="fr">
   <link rel="alternate" href="https://example.com/pa/" hreflang="pa">
 
-  <!-- Favicon and Apple Touch Icon -->
+  <!-- Favicon and Apple Touch Icon and Awesome font-->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Preconnect to external fonts servers for performance optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,16 +34,37 @@
   <title>Factory Nails</title>
 
   <!-- External JavaScript -->
-  <script defer src="script.js"></script>
+  <script defer src="../scripts/script.js"></script>
 </head>
 <body>
 <!-- Header Section -->
-<header class="header">
+<header class="header"> 
+
   <img src="../Images/factory nails logo.png" alt="Factory nails Logo" style="width:110px;height:65px;">
- <h1>Factory nails</h1>
+ <div class="menu-container">
+   <!--Language Selector-->
+   <button id="language-button"><i class="fa-solid fa-earth-americas"></i></button>
+  
+  <!-- Hamburger menu button (only visible on mobile)-->
+   <button id="menu-button">
+    <i class="fa-solid fa-bars"></i><!--Hamburger icon-->
+    <span Lang-1001="menu-text">menu</span><!--text under icon-->
+   </button>
+  
+  <!-- Dropdown for Language Selection -->
+  <div id="language-dropdown" class="dropdown-content">
+    <button class="lang-option" data-lang="en">English</button>
+    <button class="lang-option" data-lang="es">Español</button>
+    <button class="lang-option" data-lang="fr">Français</button>
+    <button class="lang-option" data-lang="pa">Papiamentu</button>
+  </div>
+
+
+
+ </div>
+
 
 </header>
-
 <!-- Main Content Section -->
 <main>
 
@@ -50,7 +72,7 @@
 
 <!-- Footer Section -->
 <footer>
-  <p>Footer Info</p>
+  <h1 Lang-1001="Footer-text">Footer Info</h1>
 </footer>
 </body>
 </html>

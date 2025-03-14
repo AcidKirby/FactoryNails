@@ -1,3 +1,97 @@
-h1{
-    font-family:  'Great Vibes';
+*{
+    margin: 0px;
+    padding: 0px;
 }
+
+/* ✅ Mobile-First Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #F4F2EC;
+  color: white;
+  border-bottom: 2px solid gray;
+
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+#language-dropdown{
+    display: flex;
+    position: absolute;
+    height: 3rem;
+    right: 3.8rem;
+    top: 4rem;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.2s, 0.2s;
+    
+}
+#language-dropdown.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    flex-direction: column;
+    
+}
+
+/*language button*/
+#language-button{
+ display: flex;
+ flex-direction: column;
+ height: 44px;
+
+}
+button#language-button{
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: x-large;
+    color: #EDAABB;
+}
+
+button#language-button:active{
+    color: #F4F2EC;
+    transition: 0.2s, 0.2s;
+}
+/*the language buttons*/
+.lang-option{
+    color: #EDAABB;
+    background-color:  #F4F2EC;
+    border: 2px solid #EDAABB;
+    height: 44px;
+    padding: 5px;
+
+    
+}
+.lang-option:active{
+    
+    transition: 0.3s;
+    color: #F4F2EC;
+    background-color: #EDAABB;
+
+}
+
+button#Menu-button{
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: large;
+    color: #EDAABB;
+}
+/*menu CONTAINER*/
+.menu-container{
+    display: flex;
+    flex-direction: row;
+}
+
+/*menu button*/
+#Menu-button{
+    display: flex;
+    flex-direction: column;
+    height: 44px;
+}  
