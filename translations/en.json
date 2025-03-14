@@ -1,4 +1,10 @@
 {
+    "meta":{
+        "description" : "Factory Nails - Premium nail services and products",
+        "keywords" : "nails, manicure, pedicure, nail salon, nail care"
+
+
+    },
     "menu-text" : "Menu",
     "Footer-text" : "Footer Info"
 }

@@ -1,4 +1,10 @@
 {
-    "menu-text" : "bosa",
-    "Footer-text" : "Pia text"
+    "meta":{
+        "description" : "Factory Nails - Produkto di hunja premium",
+        "keywords" : "hunja, manikura, pedikura, salon di hunja, nail care"
+
+
+    },
+    "menu-text" : "Menu",
+    "Footer-text" : "Info abou di pagina"
 }
