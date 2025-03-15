@@ -63,6 +63,20 @@ document.getElementById("menu-button").addEventListener("click", function () {
     }
 });
 
+// Toggle the hamburger menu dropdown
+document.getElementById("close-menu-button").addEventListener("click", function () {
+    const menuDropdown = document.getElementById("mobile-menu");
+    
+    // Toggle between 'show' and 'hide' classes
+    if (menuDropdown.classList.contains("show")) {
+        menuDropdown.classList.remove("show");
+        menuDropdown.classList.add("hide");
+    } else {
+        menuDropdown.classList.remove("hide");
+        menuDropdown.classList.add("show");
+    }
+});
+
 /// Close dropdowns if the user clicks outside of them or on the close button
 document.addEventListener("click", function (event) {
     const languageDropdown = document.getElementById("language-dropdown");
