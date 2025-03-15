@@ -35,17 +35,58 @@ function loadTranslations(lang) {
         .catch(err => console.error('Error loading translations:', err));
 }
 
-// Dropdown of the world menu (for language selector)
+// Toggle the language dropdown
 document.getElementById("language-button").addEventListener("click", function () {
-    document.getElementById("language-dropdown").classList.toggle("show");
-});
-
-// Close dropdown if the user clicks outside of it
-document.addEventListener("click", function (event) {
-    const dropdown = document.getElementById("language-dropdown");
-    const button = document.getElementById("language-button");
-
-    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
-        dropdown.classList.remove("show");
+    const languageDropdown = document.getElementById("language-dropdown");
+    
+    // Toggle between 'show' and 'hide' classes
+    if (languageDropdown.classList.contains("show")) {
+        languageDropdown.classList.remove("show");
+        languageDropdown.classList.add("hide");
+    } else {
+        languageDropdown.classList.remove("hide");
+        languageDropdown.classList.add("show");
     }
 });
+
+// Toggle the hamburger menu dropdown
+document.getElementById("menu-button").addEventListener("click", function () {
+    const menuDropdown = document.getElementById("mobile-menu");
+    
+    // Toggle between 'show' and 'hide' classes
+    if (menuDropdown.classList.contains("show")) {
+        menuDropdown.classList.remove("show");
+        menuDropdown.classList.add("hide");
+    } else {
+        menuDropdown.classList.remove("hide");
+        menuDropdown.classList.add("show");
+    }
+});
+
+/// Close dropdowns if the user clicks outside of them or on the close button
+document.addEventListener("click", function (event) {
+    const languageDropdown = document.getElementById("language-dropdown");
+    const menuDropdown = document.getElementById("mobile-menu");
+    const languageButton = document.getElementById("language-button");
+    const menuButton = document.getElementById("menu-button");
+    const closeMenuButton = document.getElementById("close-menu-button"); // Close button
+
+    // Close the language dropdown if clicked outside
+    if (
+        !languageDropdown.contains(event.target) &&
+        !languageButton.contains(event.target)
+    ) {
+        languageDropdown.classList.remove("show");
+        languageDropdown.classList.add("hide");
+    }
+
+    // Close the hamburger menu if clicked outside or on the close button
+    if (
+        !menuDropdown.contains(event.target) &&
+        !menuButton.contains(event.target) &&
+        !closeMenuButton.contains(event.target) // Also close when clicking the close button
+    ) {
+        menuDropdown.classList.remove("show");
+        menuDropdown.classList.add("hide");
+    }
+})

@@ -6,6 +6,16 @@
 
     },
     "menu-text" : "Menu",
+
+    "nav_home" : "Home",
+    "nav_courses" : "Courses",
+    "nav_about_us" : "About us",
+    "nav_blog" : "Blog",
+    "nav_salon" : "Salon",
+
+    "close-text" : "Close",
+
+
     "Footer-text" : "Footer Info"
 }
 
