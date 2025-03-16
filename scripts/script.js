@@ -104,3 +104,19 @@ document.addEventListener("click", function (event) {
         menuDropdown.classList.add("hide");
     }
 })
+
+//loader being hidden after page loads
+
+window.addEventListener("load", () => {
+    const loader = document.querySelector(".loading-screen");
+
+    // Delay before starting fade-out animation
+    setTimeout(() => {
+        loader.classList.add("loading-screen-hidden");
+    },1200); // 2000ms (2 seconds) delay
+
+
+    loader.addEventListener("transitionend", () => {
+        loader.remove(); // Instead of `document.body.removeChild(loader)`
+    });
+});

@@ -8,6 +8,18 @@
     padding: 0px;
 }
 
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+body {
+    min-width: 320px; /* Prevents page from collapsing */
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0 ; /* Centers content */
+    
+  }
+
+
 /* ✅ Mobile-First Header Styles */
 .header {
   display: flex;
@@ -17,6 +29,10 @@
   background: #F4F2EC;
   color: white;
   border-bottom: 2px solid gray;
+  width: 100vw;
+  max-width: 100dvw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 
 }
 
@@ -142,7 +158,7 @@ button#Menu-button{
     position: fixed;
     height: 100%;
     width: 40%;
-    z-index: 9;
+    z-index: 6;
 }
 #menu-list a {
     display: block;
@@ -172,6 +188,7 @@ button#Menu-button{
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers items */
+    background-position: center;
     
     gap: 2rem; /* Spaces out items */
     width: 100%;
@@ -192,8 +209,266 @@ button#Menu-button{
     color: white;
     gap: 10px;
     align-items: center;
-    z-index: 10;
+    z-index: 5;
 }
 #close-menu-button:active{
     color:#dd5e7e;
 }
+
+/*spinner/loading screen styling---------*/
+.spinner-overlay{
+    background: linear-gradient(to bottom right, #EDAABB, #dd5e7e );
+    height: 100vh;
+    width: 100vw;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    
+}
+
+.spinner {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    flex-wrap: wrap;
+    overflow: hidden;
+   
+}
+.spinner-sector{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    animation: rotate var(--duration) var(--timing) infinite;
+    }
+.spinner-sector-1{
+    border-left-color: white;
+    --duration: 2s;
+    --timing: ease-in;
+}
+.spinner-sector-2{
+    border-top-color: #d35171;
+    --duration: 2.5s;
+    --timing: ease-in-out;
+
+}
+.spinner-sector-3{
+    border-right-color: white;
+    --duration: 3s;
+    --timing: ease-out;
+
+
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0)
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+
+
+
+}
+/*------------nail animation------------------*/
+/* Easings*/
+:root{
+--smooth : cubic-bezier(0.250, 0.540, 0.310, 0.995);
+--smooth2 : cubic-bezier(0.250, 0.460, 0.450, 0.940);
+--smooth3 : cubic-bezier(0.435, 0.715, 0.355, 0.595);
+}
+
+/* Global Animations*/
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut{
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}
+
+@keyframes toXCenter{
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes toFullHeight{
+  to{
+    height: 100%;
+  }
+}
+
+/* Styles */
+
+
+.nail-icon-icon{
+  animation-name: fadeIn;
+  animation-duration: 0.1s;
+  animation-timing-function: var(--smooth);
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  background-color: rgba(0,0,0,.05);
+  border-radius: 50%;
+  height: 220px;
+  left: 50%;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 220px;
+}
+
+.nail-icon-finger{
+  animation-name: toXCenter;
+  animation-duration: 0.1s;
+  animation-timing-function: var(--smooth); /* ✅ Works here */
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  background-color: #FFCC80;
+  border-radius: 50px 50px 0 0;
+  bottom: 0;
+  height: 136px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  transform: translateX(-50%) translateY(100px);
+  width: 95px;
+  z-index: 7;
+  
+}
+.nail-icon-finger::before {  /* ✅ Fixed */
+    background-color: rgba(0,0,0,.025);
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 50%;
+    z-index: 6;
+  }
+  
+  .nail-icon-finger::after {  /* ✅ Fixed */
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 0 0 50px 50px;
+    content: "";
+    height: 70px;
+    left: 15px;
+    position: absolute;
+    right: 15px;
+    top: 0;
+  }
+
+.icon-nail{
+  animation-name: toXCenter;
+  animation-duration: 0.1s;
+  animation-timing-function: var(--smooth); /* ✅ Works here */
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  background-color: rgba(255,255,255,.8);
+  border-radius: 20px 20px 50px 50px;
+  bottom: 75px;
+  content: "";
+  height: 110px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  transform: translateX(-50%) translateY(200px);
+  width: 60px;
+  z-index: 8;
+}
+  
+  .icon-nail::before {
+    animation: toFullHeight 0.3s var(--smooth2) 0.3s 1 forwards;
+    background-color: #FFFFFF;
+    border-radius: 0 0 50px 50px;
+    bottom: 0;
+    content: "";
+    height: 0%;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .icon-nail::after {
+    animation: toFullHeight 0.3s var(--smooth) 0.6s 1 forwards, colours 0.4s var(--smooth) 0s infinite alternate;
+    background-color: #F50057;
+    border-radius: 0 0 50px 50px;
+    bottom: 0;
+    content: "";
+    height: 0%;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+  }
+  /* Keyframes for the animations */
+
+@keyframes colours{
+      0%{
+        background-color: #E91E63;
+      }
+      50%{
+        background-color: #9C27B0;
+      }
+      100%{
+        background-color: #2196F3;
+      }
+    }
+  
+
+.nail-gloss{
+  border-radius: 0 0 20px;
+  bottom: 12px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  right: 10px;
+  width: 26px;
+  z-index: 4;
+}
+.nail-gloss::before {
+    animation: toFullHeight 0.3s var(--smooth3) 0.7s 1 forwards;
+    background-color: rgba(255, 255, 255, 0.5);
+    bottom: 0;
+    content: "";
+    height: 0%;
+    position: absolute;
+    right: 0;
+    width: 50%;
+  }
+
+
+.loading-screen-hidden{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+    pointer-events: none;
+}
+
+/*--------------------------------------------*/
