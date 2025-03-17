@@ -52,32 +52,35 @@ document.getElementById("language-button").addEventListener("click", function ()
 // Toggle the hamburger menu dropdown
 document.getElementById("menu-button").addEventListener("click", function () {
     const menuDropdown = document.getElementById("mobile-menu");
-    
-    // Toggle between 'show' and 'hide' classes
-    if (menuDropdown.classList.contains("show")) {
-        menuDropdown.classList.remove("show");
-        menuDropdown.classList.add("hide");
-    } else {
-        menuDropdown.classList.remove("hide");
-        menuDropdown.classList.add("show");
+
+    // Check if it's not desktop before toggling
+    if (window.innerWidth < 1150) {
+        if (menuDropdown.classList.contains("show")) {
+            menuDropdown.classList.remove("show");
+            menuDropdown.classList.add("hide");
+        } else {
+            menuDropdown.classList.remove("hide");
+            menuDropdown.classList.add("show");
+        }
     }
 });
 
-// Toggle the hamburger menu dropdown
+// Toggle the hamburger menu dropdown (close button)
 document.getElementById("close-menu-button").addEventListener("click", function () {
     const menuDropdown = document.getElementById("mobile-menu");
-    
-    // Toggle between 'show' and 'hide' classes
-    if (menuDropdown.classList.contains("show")) {
-        menuDropdown.classList.remove("show");
-        menuDropdown.classList.add("hide");
-    } else {
-        menuDropdown.classList.remove("hide");
-        menuDropdown.classList.add("show");
+
+    // Check if it's not desktop before toggling
+    if (window.innerWidth < 1150) {
+        if (menuDropdown.classList.contains("show")) {
+            menuDropdown.classList.remove("show");
+            menuDropdown.classList.add("hide");
+        } else {
+            menuDropdown.classList.remove("hide");
+            menuDropdown.classList.add("show");
+        }
     }
 });
 
-/// Close dropdowns if the user clicks outside of them or on the close button
 document.addEventListener("click", function (event) {
     const languageDropdown = document.getElementById("language-dropdown");
     const menuDropdown = document.getElementById("mobile-menu");
@@ -94,17 +97,41 @@ document.addEventListener("click", function (event) {
         languageDropdown.classList.add("hide");
     }
 
-    // Close the hamburger menu if clicked outside or on the close button
+    // Close the hamburger menu if clicked outside or on the close button (except on desktop)
     if (
         !menuDropdown.contains(event.target) &&
         !menuButton.contains(event.target) &&
-        !closeMenuButton.contains(event.target) // Also close when clicking the close button
+        !closeMenuButton.contains(event.target) && // Also close when clicking the close button
+        window.innerWidth < 1150 // Only close if on mobile (not desktop)
     ) {
         menuDropdown.classList.remove("show");
         menuDropdown.classList.add("hide");
     }
-})
+});
 
+function handleClassChange() {
+    const menuDropdown = document.getElementById("mobile-menu");
+    if (!menuDropdown) return; // Exit if element is not found
+
+    const isDesktop = window.innerWidth >= 1150;
+
+    if (isDesktop) {
+        // Switch to desktop mode
+        menuDropdown.classList.remove("show", "hide");
+        menuDropdown.classList.add("desktopON");
+    } else {
+        // Switch to mobile mode but KEEP IT OPEN if it's already open
+        menuDropdown.classList.remove("desktopON");
+
+        if (!menuDropdown.classList.contains("show")) {
+            menuDropdown.classList.add("hide"); // Only add "hide" if not already "show"
+        }
+    }
+}
+
+// Run function on load and on resize
+window.addEventListener("resize", handleClassChange);
+window.addEventListener("DOMContentLoaded", handleClassChange);
 //loader being hidden after page loads
 
 window.addEventListener("load", () => {
@@ -113,7 +140,7 @@ window.addEventListener("load", () => {
     // Delay before starting fade-out animation
     setTimeout(() => {
         loader.classList.add("loading-screen-hidden");
-    },1200); // 2000ms (2 seconds) delay
+    },1000); // 2000ms = (2 seconds) delay
 
 
     loader.addEventListener("transitionend", () => {

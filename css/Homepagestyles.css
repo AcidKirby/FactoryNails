@@ -1,204 +1,328 @@
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-
-
-
-*{
-    margin: 0px;
-    padding: 0px;
-}
-
-*, *::after, *::before {
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+
+/* General Body Styles */
 body {
     min-width: 320px; /* Prevents page from collapsing */
     min-height: 100vh;
     overflow: hidden;
-    margin: 0 ; /* Centers content */
-    
-  }
-
-
-/* ✅ Mobile-First Header Styles */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: #F4F2EC;
-  color: white;
-  border-bottom: 2px solid gray;
-  width: 100vw;
-  max-width: 100dvw;
-  overflow-x: hidden;
-  box-sizing: border-box;
-
+    margin: 0;
 }
 
+/* ==============================
+   HEADER SECTION
+   ============================== */
+   .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #F4F2EC;
+    color: white;
+    border-bottom: 2px solid gray;
+    
+    width: 100vw; /* Full width */
+    max-width: 100dvw;
+    min-width: 450px;
+    
+    overflow-x: visible;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    min-height: 60px; /* Ensures a minimum height */
+    height: auto; /* Allows it to grow when needed */
+}
+
+/* General Paragraph Styling */
 p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
 }
 
-#language-dropdown{
+/* ==============================
+   LANGUAGE DROPDOWN MENU
+   ============================== */
+   #language-dropdown {
     display: flex;
     position: fixed;
     height: 3rem;
     flex-direction: column;
     opacity: 0;
-   
-    transform: translateX(150%);  /* Keeps it off-screen initially */
+    top: 0; /* Ensures a consistent top position */
+    right: 0; /* Small screen default */
+    transform: translateX(150%); /* Keeps it off-screen initially */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    
-    
-    
 }
+
+/* Show dropdown */
 #language-dropdown.show {
-    display: flex;
     opacity: 1;
-    flex-direction: column;
-    transform: translate(50%, -40%);
-    
+    transform: translateX(0); /* Slide in smoothly from right */
 }
 
-#language-dropdown.hide {
+/* Large Screens */
+@media (min-width: 1150px) {
+    #language-dropdown {
+        right: 4rem; /* Adjust position for large screens */
+        top: 0; /* Ensure it stays aligned */
+    }
+
+    #language-dropdown.hide {
+        opacity: 0;
+        transform: translateX(150%); /* Moves off-screen smoothly */
+        pointer-events: none;
+    }
+
+    #language-dropdown.show {
+        opacity: 1;
+        transform: translateX(0); /* No diagonal movement */
+    }
+}
+/* Language Button */
+#language-button {
     display: flex;
-    opacity: 0;
-    
     flex-direction: column;
-    transform: translateX(150%);
-    
-    
+    height: 44px;
 }
 
-/*language button*/
-#language-button{
- display: flex;
- flex-direction: column;
- height: 44px;
- padding: 15px
-
-}
-button#language-button{
+button#language-button {
     background-color: transparent;
     border: none;
-    padding: 10px;
-    font-size: x-large;
+    padding: 9px;
+    font-size: 1.15em;
     color: #EDAABB;
 }
+span#language-button {
+  height: 21px;
 
-button#language-button:active, button#menu-button:active{
+}
+
+/* Button Click Effects */
+button#language-button:active, 
+button#menu-button:active {
     color: #dd5e7e;
     transition: 0.2s;
 }
-/*the language buttons*/
-.lang-option{
+
+/* Language Options Styling */
+.lang-option {
+    position: relative;
     color: #EDAABB;
-    background-color:  #F4F2EC;
+    background-color: #F4F2EC;
     border: 2px solid #EDAABB;
     height: 44px;
     padding: 5px;
-
-    
 }
-.lang-option:active{
-    transition: 0.2s;
+
+.lang-option:active {
     color: #F4F2EC;
     background-color: #EDAABB;
-
+    transition: 0.2s;
 }
 
-button#Menu-button{
+/* ==============================
+   MENU SECTION
+   ============================== */
+.menu-container {
+    display: flex;
+    flex-direction: row;
+}
+#menu-list a {
+    display: flex;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color:    white;
+    font-size: clamp(14px, 4vw, 24px);
+    line-height: 1.5;
+    font-family: "Great Vibes", cursive;
+    border: 5px white;
+    user-select: none; /* Prevents text selection */
+    margin: 0;
+    
+
+  
+    
+}
+
+/* Menu Button */
+#Menu-button {
+    display: flex;
+    flex-direction: column;
+    height: 44px;
     background-color: transparent;
     border: none;
     padding: 10px;
     font-size: large;
     color: #EDAABB;
 }
-/*menu CONTAINER*/
-.menu-container{
-    display: flex;
-    flex-direction: row;
-}
 
-/*menu button*/
-#Menu-button{
-    display: flex;
-    flex-direction: column;
-    height: 44px;
-}  
-
-
-/*for the javascript*/
-#mobile-menu{
+/* Mobile Menu */
+#mobile-menu {
+    width: 50%;
     opacity: 0;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    
-    
 }
+
 #mobile-menu.show {
     opacity: 1;
-    transform: translatex(-45%);
+    transform: translateX(-45%);
+    justify-content: center;
 }
+
+/* Responsive Adjustments for Larger Screens */
+@media (min-width: 552px) {
+    #mobile-menu.show {
+        transform: translateX(-53%);
+    }
+}
+
+@media (min-width: 636px) {
+    #mobile-menu.show {
+        transform: translateX(-75%);
+    }
+}
+@media (min-width: 997px) {
+  #mobile-menu.show {
+      transform: translateX(-74%);
+  }
+}
+
 #mobile-menu.hide {
-    
     opacity: 0;
     transform: translateX(150%);
-    
-    
 }
-/*--------------*/
 
+/* Hidden Menu Panel */
 .hidden-menu {
     display: flex;
     flex-direction: column;
-    transform: translateX(150%);  /* Keeps it off-screen initially */
+    transform: translateX(150%);
     background-color: #EDAABB;
     position: fixed;
     height: 100%;
-    width: 40%;
+    width: 40vw;
     z-index: 6;
-}
-#menu-list a {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    font-size: xx-large;
-    font-family: "Great Vibes", cursive;
-    border: 5px white;
-}
-
-#menu-list a:active {
-   color: #dd5e7e;
-   
-}
-#menu-list li{
-    
-    width: 100%;
-    text-align: center;
-    
-}
-#menu-list {
-    
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers items */
-    background-position: center;
-    
-    gap: 2rem; /* Spaces out items */
-    width: 100%;
-    height: 100%;
-    margin-top: 30%;
-    border-top: 3px solid gray;
+    top: 0;
   
 }
 
-#close-menu-button{
+/* Menu List */
+#menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+    border-top: 2px solid white;
+}
+/* Responsive Adjustments for Larger Screens */
+@media (min-width: 1150px) {
+  
+
+  #menu-button, #close-menu-button{
+    display: none;
+    visibility: hidden;
+    
+    
+   }
+
+   #mobile-menu{
+    opacity: 1;
+    background-color: transparent;
+    
+    
+    
+   }
+ 
+    #menu-list {
+    font-size: 18px; /* Fixed font size on larger screens */
+    padding: 10px 20px; /* Adjust padding for a better layout */
+   flex-direction: row;
+    border: none;
+  
+
+}
+#menu-list a {
+  color: #EDAABB;
+
+
+}
+
+   
+    .desktopON {
+      display: flex;
+      flex-direction: row; /* Ensure items are in a row */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Align vertically */
+      
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Perfect centering */
+      
+      background-color: rgba(255, 255, 255, 0.9); /* Light background to make it visible */
+      padding: 10px 20px; /* Space around menu */
+      border-radius: 8px; /* Slightly rounded edges */
+      
+      z-index: 9999; /* Ensure it's above other elements */
+      opacity: 1; /* Make sure it's visible */
+      visibility: visible; /* Ensure it's not hidden */
+    }
+  
+    #desktopON a {
+      
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      color: #333; /* Make sure text is visible */
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      z-index: 9999;
+    }
+    .desktopON li {
+       /* Makes each list item shrink to fit content */
+      padding: 10px 15px; /* Add space around menu items */
+      
+      
+    }
+  
+    .desktopON a:hover {
+      color: #007BFF; /* Change color on hover */
+    }
+  
+  }
+
+
+
+
+
+
+#menu-list a:active {
+    color: #dd5e7e;
+}
+
+#menu-list li {
+    width: 50vw;
+    text-align: center;
+    border-bottom: 2px solid white;
+    -webkit-tap-highlight-color: white;
+    margin: 0;
+    
+
+}
+
+/* Close Menu Button */
+#close-menu-button {
     display: flex;
     flex-direction: row-reverse;
     position: absolute;
@@ -210,12 +334,15 @@ button#Menu-button{
     gap: 10px;
     align-items: center;
     z-index: 5;
-}
-#close-menu-button:active{
-    color:#dd5e7e;
+    top: 0;
+    left: 0;
+ 
 }
 
-/*spinner/loading screen styling---------*/
+#close-menu-button:active {
+    color: #dd5e7e;
+}
+/*--------------spinner/loading screen styling---------*/
 .spinner-overlay{
     background: linear-gradient(to bottom right, #EDAABB, #dd5e7e );
     height: 100vh;
@@ -362,7 +489,7 @@ button#Menu-button{
   z-index: 7;
   
 }
-.nail-icon-finger::before {  /* ✅ Fixed */
+.nail-icon-finger::before { 
     background-color: rgba(0,0,0,.025);
     content: "";
     height: 100%;
@@ -372,7 +499,7 @@ button#Menu-button{
     z-index: 6;
   }
   
-  .nail-icon-finger::after {  /* ✅ Fixed */
+  .nail-icon-finger::after {  
     background-color: rgba(0,0,0,0.1);
     border-radius: 0 0 50px 50px;
     content: "";
@@ -386,7 +513,7 @@ button#Menu-button{
 .icon-nail{
   animation-name: toXCenter;
   animation-duration: 0.1s;
-  animation-timing-function: var(--smooth); /* ✅ Works here */
+  animation-timing-function: var(--smooth); 
   animation-delay: 0s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
