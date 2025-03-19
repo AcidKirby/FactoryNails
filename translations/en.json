@@ -17,7 +17,11 @@
     "close-text" : "Close",
 
 
-    "Footer-text" : "Footer Info"
+    "Welcome-text" : "Welcome to FactoryNails!",
+    "distribution-text" : " Distributors",
+    "approved-text" : "Approved",
+
+    "Chatbutton-text" : "Chat with us"
 }
 
 

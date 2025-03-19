@@ -5,5 +5,11 @@
     },
     "language-text" : "NL" ,
     "menu-text": "Menu",
-    "Footer-text": "voettekst"
+   
+
+
+
+    "distribution-text" : "Distributeurs",
+    "approved-text" : "Erkenning"
+
 }

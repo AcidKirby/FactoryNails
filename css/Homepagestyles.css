@@ -1,5 +1,5 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 /* Reset Styles */
 * {
@@ -7,13 +7,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+  height: 100vh;
+  margin: 0;
+  min-width: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
 /* General Body Styles */
 body {
-    min-width: 320px; /* Prevents page from collapsing */
+    min-width: 500px; /* Prevents page from collapsing */
     min-height: 100vh;
     overflow: hidden;
     margin: 0;
+    padding-top: 140px;
 }
 
 /* ==============================
@@ -29,8 +37,7 @@ body {
     border-bottom: 2px solid gray;
     
     width: 100vw; /* Full width */
-    max-width: 100dvw;
-    min-width: 450px;
+    min-width: 500px;
     
     overflow-x: visible;
     position: fixed;
@@ -166,9 +173,11 @@ button#menu-button:active {
 
 /* Mobile Menu */
 #mobile-menu {
-    width: 50%;
+    min-width: 250px;
+    max-width: 500px;
     opacity: 0;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+   
 }
 
 #mobile-menu.show {
@@ -198,12 +207,12 @@ button#menu-button:active {
 #mobile-menu.hide {
     opacity: 0;
     transform: translateX(150%);
+    visibility: hidden;
 }
 
 /* Hidden Menu Panel */
 .hidden-menu {
     display: flex;
-    flex-direction: column;
     transform: translateX(150%);
     background-color: #EDAABB;
     position: fixed;
@@ -220,7 +229,6 @@ button#menu-button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin-top: 64px;
     border-top: 2px solid white;
 }
@@ -241,6 +249,7 @@ button#menu-button:active {
     
     
     
+    
    }
  
     #menu-list {
@@ -248,11 +257,15 @@ button#menu-button:active {
     padding: 10px 20px; /* Adjust padding for a better layout */
    flex-direction: row;
     border: none;
+   width: 900px;
+   
+  
   
 
 }
 #menu-list a {
   color: #EDAABB;
+ 
 
 
 }
@@ -265,7 +278,7 @@ button#menu-button:active {
       align-items: center; /* Align vertically */
       
       position: absolute;
-      top: 50%;
+      top: 20%;
       left: 50%;
       transform: translate(-50%, -50%); /* Perfect centering */
       
@@ -276,6 +289,7 @@ button#menu-button:active {
       z-index: 9999; /* Ensure it's above other elements */
       opacity: 1; /* Make sure it's visible */
       visibility: visible; /* Ensure it's not hidden */
+      
     }
   
     #desktopON a {
@@ -296,7 +310,7 @@ button#menu-button:active {
       
     }
   
-    .desktopON a:hover {
+    #monile-menu a:hover {
       color: #007BFF; /* Change color on hover */
     }
   
@@ -342,6 +356,14 @@ button#menu-button:active {
 #close-menu-button:active {
     color: #dd5e7e;
 }
+/* ==============================
+   MAIN SECTION
+   ============================== */
+
+   .main-text{
+    display: flex;
+    justify-content: center;
+   }
 /*--------------spinner/loading screen styling---------*/
 .spinner-overlay{
     background: linear-gradient(to bottom right, #EDAABB, #dd5e7e );
@@ -355,6 +377,7 @@ button#menu-button:active {
     align-content: center;
     flex-wrap: wrap;
     display: flex;
+    z-index: 9999;
     
 }
 
@@ -596,6 +619,154 @@ button#menu-button:active {
     visibility: hidden;
     transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
     pointer-events: none;
+ 
 }
 
 /*--------------------------------------------*/
+/* ==============================
+   FOOTER SECTION
+   ============================== */
+
+   footer {
+    margin-top: 80px;
+    background: #F4F2EC;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between; /* This aligns the divs evenly across the footer */
+    flex-direction: column;
+    padding: 25px;
+    font-family:  "Playfair Display", serif;
+
+}
+
+footer h3{
+  margin-left: 2em;
+}
+/*------------------section 1--------------------------*/
+.footer-section-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 15px;
+
+}
+.footer-section-1 li, a{
+  list-style: none;
+  text-decoration: none;
+  color: #4A4A4A;
+  margin-top: 10px;
+
+  
+}
+
+.footer-section-1 img{
+  margin-bottom: 10px;
+  height: 150px;
+  width: 150px;
+}
+.footer_review{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5em;
+  font-size: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+.footer_review .checkmark{
+  
+  border: 2px solid #4A4A4A;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+/*-----------------sectionn 2--------distribiteurs-------------------*/
+.footer-section-2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  margin: 25px;
+  font-size: 50px;
+  gap: 1em;
+  padding: 30;
+
+}
+.pic1, .pic2, .pic3,.pic4,.pic5{
+  height: 86px;
+  width: 86px;
+  min-width: 20px;
+  min-height: 20px;
+  border: 5px solid grey;
+}
+/*-----------------section 3--------Approved-------------------*/
+.footer-section-3{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  margin: 25px;
+  font-size: 50px;
+  padding: 30;
+
+}
+/*-----------------section 4--------Approved-------------------*/
+.footer-section-4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  margin: 15px;
+  padding: 3%;
+  font-size: 3em;
+  gap: 1em;
+  color: #EDAABB;
+}
+
+/* ==============================
+   Chat-Bot SECTION
+   ============================== */
+/* Ensure the chatbot stays at the bottom-right of the screen */
+#chatbot{
+  position: fixed;
+  bottom: 20px;  /* Distance from the bottom */
+  right: 20px;   /* Distance from the right */
+  z-index: 1000; /* Ensures it stays on top of other elements */
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 50%;
+
+}
+
+#chatbot button {
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 4em;
+  transform: scaleX(-1);
+  color: #EDAABB;
+  text-shadow: solid black;
+ box-shadow: black;
+
+}
+
+.chatbot-dropdown{
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+ color: #EDAABB;
+  border-radius: 50%;
+  padding: 15px;
+ font-size: 1.5em;
+ visibility: hidden;
+}
+
+#chatbot:hover .chatbot-dropdown{
+  visibility: visible;
+}
+  
