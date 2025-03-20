@@ -7,5 +7,7 @@
     },
     "language-text" : "ES" ,
     "menu-text" : "Menú",
+
+    "Welcome-text" : "¡Bienvenido a FactoryNails!",
     "Footer-text" : "pie de página"
 }

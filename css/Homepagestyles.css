@@ -21,7 +21,7 @@ body {
     min-height: 100vh;
     overflow: hidden;
     margin: 0;
-    padding-top: 140px;
+    padding-top: 70px;
 }
 
 /* ==============================
@@ -38,6 +38,7 @@ body {
     
     width: 100vw; /* Full width */
     min-width: 500px;
+    z-index: 99;
     
     overflow-x: visible;
     position: fixed;
@@ -50,7 +51,7 @@ body {
 
 /* General Paragraph Styling */
 p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Playfair Display", serif;
 }
 
 /* ==============================
@@ -232,6 +233,22 @@ button#menu-button:active {
     margin-top: 64px;
     border-top: 2px solid white;
 }
+
+
+
+#menu-list a:active {
+  color: #dd5e7e;
+}
+
+#menu-list li {
+  width: 50vw;
+  text-align: center;
+  border-bottom: 2px solid white;
+  -webkit-tap-highlight-color: white;
+  margin: 0;
+  
+
+}
 /* Responsive Adjustments for Larger Screens */
 @media (min-width: 1150px) {
   
@@ -250,6 +267,7 @@ button#menu-button:active {
     
     
     
+    
    }
  
     #menu-list {
@@ -259,12 +277,14 @@ button#menu-button:active {
     border: none;
    width: 900px;
    
+   
   
   
 
 }
 #menu-list a {
   color: #EDAABB;
+  
  
 
 
@@ -306,8 +326,13 @@ button#menu-button:active {
     .desktopON li {
        /* Makes each list item shrink to fit content */
       padding: 10px 15px; /* Add space around menu items */
+     
       
       
+      
+    }
+    #menu-list li {
+      border-bottom: none;
     }
   
     #monile-menu a:hover {
@@ -320,20 +345,6 @@ button#menu-button:active {
 
 
 
-
-#menu-list a:active {
-    color: #dd5e7e;
-}
-
-#menu-list li {
-    width: 50vw;
-    text-align: center;
-    border-bottom: 2px solid white;
-    -webkit-tap-highlight-color: white;
-    margin: 0;
-    
-
-}
 
 /* Close Menu Button */
 #close-menu-button {
@@ -357,13 +368,74 @@ button#menu-button:active {
     color: #dd5e7e;
 }
 /* ==============================
+   hero SECTION
+   ============================== */
+
+   .hero{
+    position: relative;
+    width: 100vw;
+    min-width: 375px;
+    height: 540px;
+    background-image: url(../Images/people-hands-manicure-cuticle.jpg);
+    background-size: cover;
+    background-position: center;
+   }
+
+   .hero-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    left: 10%;
+    top: 60%;
+    width: 30%;
+    color: white;
+    gap: 2em;
+    background-color: transparent;
+    text-shadow: black 5px 5px 5px;
+
+
+    
+    }
+
+    .hero-content h1{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1rem, 0.384rem + 2.629vw, 2.75rem);
+    
+    }
+    .hero-content h2{
+      font-family:  "Playfair Display", serif;
+      font-size: clamp(0.5rem, 0.042rem + 1.953vw, 1.8rem);
+    }
+   /* ==============================
    MAIN SECTION
    ============================== */
+ 
 
    .main-text{
     display: flex;
     justify-content: center;
    }
+
+   .main-section-1{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: 15px;
+
+   }
+   .main-section-2{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: 15px;
+
+   }
+
+
+
+
+
+
 /*--------------spinner/loading screen styling---------*/
 .spinner-overlay{
     background: linear-gradient(to bottom right, #EDAABB, #dd5e7e );
@@ -750,7 +822,7 @@ footer h3{
   font-size: 4em;
   transform: scaleX(-1);
   color: #EDAABB;
-  text-shadow: solid black;
+  text-shadow: grey -10px 10px 8px;
  box-shadow: black;
 
 }
