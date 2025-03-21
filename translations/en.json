@@ -8,6 +8,12 @@
     "language-text" : "EN" ,
     "menu-text" : "Menu",
 
+    "Call-to-action-tekst" : "Take a course?",
+    "Call-to-action-button" : "Book now!",
+    "lees-verder-text" : "Read more...",
+
+    "homepage-courses-paragragh" : "At FactoryNails, we offer not only the most beautiful nail styling but also high-quality training and courses for aspiring nail technicians. Whether you're just starting out or already have experience, our personal and professional guidance will help you take your skills to the next level. With our certified trainers, who are refreshed annually in the latest techniques and trends, you can count on expert knowledge of the highest standard. Join our workshops, themed training sessions, and open days, and discover how you can develop yourself in the exciting world of nail styling!",
+
     "nav_home" : "Home",
     "nav_courses" : "Courses",
     "nav_about_us" : "About us",

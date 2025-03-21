@@ -10,16 +10,14 @@
 html {
   height: 100vh;
   margin: 0;
-  min-width: 500px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  min-width: 375px;
+
 }
 
 /* General Body Styles */
 body {
-    min-width: 500px; /* Prevents page from collapsing */
+    min-width: 375px; /* Prevents page from collapsing */
     min-height: 100vh;
-    overflow: hidden;
     margin: 0;
     padding-top: 70px;
 }
@@ -37,10 +35,8 @@ body {
     border-bottom: 2px solid gray;
     
     width: 100vw; /* Full width */
-    min-width: 500px;
+    min-width: 375px;
     z-index: 99;
-    
-    overflow-x: visible;
     position: fixed;
     top: 0;
     left: 0;
@@ -146,14 +142,16 @@ button#menu-button:active {
     display: flex;
     padding: 15px;
     text-align: center;
+    justify-content: center;
     text-decoration: none;
     color:    white;
-    font-size: clamp(14px, 4vw, 24px);
+    font-size: 2rem;
     line-height: 1.5;
     font-family: "Great Vibes", cursive;
     border: 5px white;
     user-select: none; /* Prevents text selection */
     margin: 0;
+    width: 50vw;
     
 
   
@@ -174,8 +172,6 @@ button#menu-button:active {
 
 /* Mobile Menu */
 #mobile-menu {
-    min-width: 250px;
-    max-width: 500px;
     opacity: 0;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
    
@@ -183,7 +179,7 @@ button#menu-button:active {
 
 #mobile-menu.show {
     opacity: 1;
-    transform: translateX(-45%);
+    transform: translateX(-30%);
     justify-content: center;
 }
 
@@ -208,7 +204,6 @@ button#menu-button:active {
 #mobile-menu.hide {
     opacity: 0;
     transform: translateX(150%);
-    visibility: hidden;
 }
 
 /* Hidden Menu Panel */
@@ -218,10 +213,10 @@ button#menu-button:active {
     background-color: #EDAABB;
     position: fixed;
     height: 100%;
-    width: 40vw;
     z-index: 6;
     top: 0;
-  
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Menu List */
@@ -229,9 +224,10 @@ button#menu-button:active {
     list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 64px;
     border-top: 2px solid white;
+  
+    
 }
 
 
@@ -240,13 +236,12 @@ button#menu-button:active {
   color: #dd5e7e;
 }
 
-#menu-list li {
-  width: 50vw;
+#menu-list li{
   text-align: center;
   border-bottom: 2px solid white;
   -webkit-tap-highlight-color: white;
   margin: 0;
-  
+
 
 }
 /* Responsive Adjustments for Larger Screens */
@@ -378,7 +373,9 @@ button#menu-button:active {
     height: 540px;
     background-image: url(../Images/people-hands-manicure-cuticle.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    left: 0;
+    top: 0;
    }
 
    .hero-content{
@@ -388,10 +385,10 @@ button#menu-button:active {
     align-content: center;
     position: absolute;
     left: 10%;
-    top: 60%;
-    width: 30%;
+    top: 68%;
+    width: 70%;
     color: white;
-    gap: 2em;
+    gap: 1em;
     background-color: transparent;
     text-shadow: black 5px 5px 5px;
 
@@ -401,13 +398,60 @@ button#menu-button:active {
 
     .hero-content h1{
       font-family: "Playfair Display", serif;
-      font-size: clamp(1rem, 0.384rem + 2.629vw, 2.75rem);
+      font-size: clamp(2.5rem, 2rem + 2.1333vw, 4rem);
     
     }
     .hero-content h2{
       font-family:  "Playfair Display", serif;
-      font-size: clamp(0.5rem, 0.042rem + 1.953vw, 1.8rem);
+      font-size: clamp(0.75rem, 0.3333rem + 1.7778vw, 2rem);
     }
+
+    /* ==============================
+   call to action SECTION
+   ============================== */
+   .call-to-action{
+    position: sticky;
+    top: 87px;
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+    z-index: 7;
+    background-color: #EDAABB;
+    padding: 10px;
+    box-sizing: border-box;
+
+  
+
+
+   }
+
+   #call-to-action-button{
+    display: flex;
+    background-color: transparent;
+    border: 2px solid gray;
+    padding: 5px 30px;
+    border-radius:  10% 10%;
+    color: black;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-family:  "Playfair Display", serif;
+    background: url(/Images/classy-gold-background-wall-paint-600nw-73178752.webp) lightgray 100% / cover no-repeat;
+    background-position: top left;
+
+    }
+    .call-to-action h2{
+      color: white;
+      font-size: clamp(1.5rem, 1.1667rem + 1.4222vw, 2.5rem);
+      font-family: "Playfair Display";
+    }
+   
+
+
+
+
+   
+
+
+
    /* ==============================
    MAIN SECTION
    ============================== */
@@ -427,10 +471,13 @@ button#menu-button:active {
    .main-section-2{
     margin-left: 20px;
     margin-right: 20px;
-    margin: 15px;
 
    }
 
+
+   .lees-verder-link{
+    color: blue;
+   }
 
 
 
@@ -700,7 +747,6 @@ button#menu-button:active {
    ============================== */
 
    footer {
-    margin-top: 80px;
     background: #F4F2EC;
     padding: 10px 0;
     display: flex;
@@ -721,8 +767,7 @@ footer h3{
   align-items: center;
   flex-direction: column;
   text-align: center;
-  margin: 15px;
-
+  font-size: clamp(0.75rem, 0.6667rem + 0.3556vw, 1rem);
 }
 .footer-section-1 li, a{
   list-style: none;
@@ -743,8 +788,8 @@ footer h3{
   flex-direction: row;
   justify-content: center;
   gap: 0.5em;
-  font-size: 20px;
-  align-items: center;
+  font-size: clamp(1rem, 0.8333rem + 0.7111vw, 1.5rem);
+   align-items: center;
   margin-top: 20px;
 }
 .footer_review .checkmark{
@@ -806,7 +851,7 @@ footer h3{
 #chatbot{
   position: fixed;
   bottom: 20px;  /* Distance from the bottom */
-  right: 20px;   /* Distance from the right */
+  right: 10px;   /* Distance from the right */
   z-index: 1000; /* Ensures it stays on top of other elements */
   background-color: transparent;
   padding: 10px;
@@ -819,7 +864,7 @@ footer h3{
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 4em;
+  font-size: 3em;
   transform: scaleX(-1);
   color: #EDAABB;
   text-shadow: grey -10px 10px 8px;
@@ -841,4 +886,6 @@ footer h3{
 #chatbot:hover .chatbot-dropdown{
   visibility: visible;
 }
+
+
   
